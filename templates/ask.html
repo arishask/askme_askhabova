@@ -35,10 +35,11 @@
 
           <!-- {% block content %} -->
           <div class="d-flex align-items-center">
-            <h2>New Questions</h2>
+            <h2>New Question</h2>
           </div>
+
           <div class="row mt-3">
-            <div class="col-1 d-flex justify-content-center mt-3">Title</div>
+            <div class="col-1 d-flex justify-content-lg-start mt-3">Question</div>
             <div class="col-10">
               <div class="form-floating">
                 <textarea class="form-control border-dark" placeholder="Leave a comment here" id="floatingTextarea1" style="height: 60px"></textarea>
@@ -46,8 +47,16 @@
               </div>
             </div>
           </div>
+          <div class="row alert-message">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Please, input your question!
+              </div>
+            </div>
+          </div>
           <div class="row mt-3">
-            <div class="col-1 d-flex justify-content-center mt-3">Text</div>
+            <div class="col-1 d-flex justify-content-lg-start mt-3">Text</div>
             <div class="col-10">
               <div class="form-floating">
                 <textarea class="form-control border-dark" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
@@ -55,13 +64,34 @@
               </div>
             </div>
           </div>
+          <div class="row alert-message">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Please, input text!
+              </div>
+            </div>
+          </div>
           <div class="row mt-3">
-            <div class="col-1 d-flex justify-content-center mt-3">Tags</div>
+            <div class="col-1 d-flex justify-content-lg-start mt-3">Tags</div>
             <div class="col-10">
               <div class="form-floating">
                 <textarea class="form-control border-dark" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 60px"></textarea>
                 <label for="floatingTextarea3" class="text-secondary">moon, park, puzzle</label>
               </div>
+            </div>
+          </div>
+          <div class="row alert-message">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Please, input tags!
+              </div>
+            </div>
+          </div>
+          <div class="row button">
+            <div class="col-1"></div>
+            <div class="col-10">
               <button type="button" class="btn btn-light border-dark mt-3">ASK!</button>
             </div>
           </div>
