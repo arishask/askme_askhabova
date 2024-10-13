@@ -1,0 +1,7 @@
+hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: #212529; /* Цвет линии для остальных браузеров */
+    background-color: #212529; /* Цвет линии для браузера Firefox и Opera */
+    height: 1px; /* Толщина линии */
+    opacity: 1;
+   }

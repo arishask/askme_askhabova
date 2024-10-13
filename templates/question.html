@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand pb-0" href="#">
+          <h2 class="mb=0">AskMe</h2>
+        </a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="🔍 Search" aria-label="Search"/>
+          <button class="btn btn-outline-success me-1" type="submit">ASK!</button>
+        </form>
+        <div class="d-flex gap-1">
+          <img src="../static/img/Avatar.jpeg" width="50" alt="Avatar" class="img-thumbnail"/>
+          <div>
+            <div>Arina Askhabova</div>
+            <a href="#">settings</a>
+            <a href="#">log out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+    <main class="container mt-3">
+      <div class="row">
+        <div class="col-9">
+
+          <!-- {% block content %} -->
+          <div class="d-flex flex-column gap-3 pe-1">
+            <div class="card-body w-100 mt-3" style="width: 18rem;">
+              <div class="row mt-4">
+              <div class="col-4">
+                <div class="border mb-3" style="height: 140px">
+                  <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+                </div>
+                <div class="d-flex mt-1">
+                  <button type="button" class="btn btn-primary p-1 bg-dark border-dark">
+                  ♡
+                  <span class="badge text">5</span>
+                </button>
+                </div>
+              </div>
+              <div class="col">
+                <h2> How to build a moon park?</h2>
+                <p class="me-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                  qui officia deserunt mollit anim id est laborum.
+                </p>
+                <div class="d-flex gap-5">
+                  <div class="mb-2">
+                    Tags:
+                    <a href="#" class="card-link">black-jack</a>
+                    <a href="#" class="card-link">bender</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <div class="d-flex flex-column gap-3">
+              <div class="card w-100 mt-1 border-dark" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <div class="border" style="height: 80px">
+                        <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+                      </div>
+                      <button type="button" class="btn btn-primary p-1 bg-dark border-dark">
+                        ♡
+                        <span class="badge text">3</span>
+                      </button>
+                    </div>
+                    <div class="col-10">
+                      <h5 class="card-title">How to build a moon park?</h5>
+                      <p class="card-text mb-0">Guys, I have trouble with a moon park.
+                      <p class="card-text">Can't find th black-jack...</p>
+                      <div class="d-flex gap-2">
+                        <input class="form-check-input" type="checkbox" value="Correct!" aria-label="..." >
+                        <p>Correct!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="d-flex flex-column gap-3 mb-3">
+              <div class="card w-100 mt-3 border-dark" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <div class="border mb-3" style="height: 80px">
+                        <img src="jpg.jpg" alt="Avatar" class="img-fluid">
+                      </div>
+                      <button type="button" class="btn btn-primary p-1 bg-dark border-dark">
+                        ♡
+                        <span class="badge text">3</span>
+                      </button>
+                    </div>
+                    <div class="col-10">
+                      <h5 class="card-title">How to build a moon park?</h5>
+                      <p class="card-text mb-0">Guys, I have trouble with a moon park.
+                      <p class="card-text">Can't find th black-jack...</p>
+                      <div class="d-flex gap-2">
+                        <input class="form-check-input" type="checkbox" value="Correct!" aria-label="..." >
+                        <p>Correct!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-floating mt-3 mb-3">
+            <textarea class="form-control border-dark" placeholder="Leave a comment here" id="floatingTextarea1" style="height: 130px"></textarea>
+            <label for="floatingTextarea1" class="text-secondary">Enter your answer here..</label>
+          </div>
+          <button type="button" class="btn btn-primary bg-dark border-dark pe-3 mb-5">Answer</button>
+          <!--{% endblock %} -->
+
+        </div>
+        <div class="col-3">
+          <section class="mb-4 mt-5">
+            <h2>Popular Tags</h2>
+            <div class="d-inline">
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">perl</a></span>
+              <span><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">python</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">TechnoPark</a></span>
+              <span><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">MySQL</a></span>
+              <span><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">django</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Mail.Ru</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Voloshin</a></span>
+              <span><a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Firefox</a></span>
+            </div>
+          </section>
+          <section>
+            <h2>Best Members</h2>
+            <div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Mr. Freeman</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Dr. House</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Bender</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Queen Victoria</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">A. Askhabova</a></li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
