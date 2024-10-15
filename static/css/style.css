@@ -5,3 +5,6 @@ hr {
     height: 1px; /* Толщина линии */
     opacity: 1;
    }
+.signup-form{
+    width: 400px;
+}

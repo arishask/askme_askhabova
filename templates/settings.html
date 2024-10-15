@@ -34,7 +34,7 @@
 
           <!-- {% block div %} -->
           <div class="d-flex align-items-center mb-4">
-            <h2>Registration</h2>
+            <h2>Settings: Arina Askhabova</h2>
           </div>
           <div class="mb-3 row">
             <label for="inputLogin" class="col-sm-2 col-form-label me-3">Login</label>
@@ -64,33 +64,16 @@
             </div>
           </div>
           <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label me-3">Password</label>
-            <div class="col-sm-5">
-              <input type="password" class="form-control border-dark signup-form" id="inputPassword" placeholder="********">
-              <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
-                    Password is too short!
-              </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="repeatPassword" class="col-sm-2 col-form-label me-3">Repeat password</label>
-            <div class="col-sm-5">
-              <input type="password" class="form-control border-dark signup-form" id="repeatPassword" placeholder="********">
-              <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
-                    Passwords don't match!
-              </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
             <label for="inputFile" class="col-sm-2 col-form-label me-3">Upload avatar</label>
             <div class="col-sm-5 pe-0">
               <div class="mb-3">
-                <input type="file" class="form-control" id="inputFile" aria-label="file example" required>
-                <div class="invalid-feedback">Example invalid form file feedback</div>
-                <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
-                    Please, upload file!
-                </div>
-                <button type="button" class="btn btn-light border-dark mt-4">Register!</button>
+                  <img src="../static/img/Avatar.jpeg" width="100" alt="Avatar" class="img-thumbnail mb-3"/>
+                  <input type="file" class="form-control" id="inputFile" aria-label="file example" required>
+                  <div class="invalid-feedback">Example invalid form file feedback</div>
+                  <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                      Please, upload file!
+                  </div>
+                  <button type="button" class="btn btn-light border-dark mt-4">Save</button>
               </div>
             </div>
           </div>
