@@ -8,6 +8,9 @@ hr {
 .form{
     width: 400px;
 }
+::placeholder{
+    color:#000;
+}
 .counter-button .count {
     color: #000;
     display: inline-block;
