@@ -1,0 +1,71 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../static/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand pb-0" href="{% url 'index' %}">
+          <h2 class="mb=0">AskMe</h2>
+        </a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 form" type="search" placeholder="🔍 Type to search" aria-label="Search"/>
+        </form>
+        <a href="{% url 'ask' %}" class="btn btn-outline-success">ASK!</a>
+        <div class="d-flex gap-1">
+          <img src="../../static/img/Avatar.jpeg" width="50" alt="Avatar" class="img-thumbnail"/>
+          <div>
+            <div>Arina Askhabova</div>
+            <a href="{% url 'settings' %}">settings</a>
+            <a href="#">log out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <hr>
+    <main class="container mt-3">
+      <div class="row">
+        <div class="col-9">
+          {% block content %}
+
+          {% endblock %}
+        </div>
+        <div class="col-3">
+          <section class="mb-4 mt-5">
+            <h2>Popular Tags</h2>
+            <div class="d-inline">
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">perl</a></span>
+              <span><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">python</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">TechnoPark</a></span>
+              <span><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">MySQL</a></span>
+              <span><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">django</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Mail.Ru</a></span>
+              <span><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Voloshin</a></span>
+              <span><a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Firefox</a></span>
+            </div>
+          </section>
+          <section>
+            <h2>Best Members</h2>
+            <div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Mr. Freeman</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Dr. House</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Bender</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">Queen Victoria</a></li>
+                <li class="list-group-item p-0 border-0 mb-2"><a href="#">A. Askhabova</a></li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="../../static/js/bootstrap.js"></script>
+  </body>
+</html>

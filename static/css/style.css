@@ -1,0 +1,72 @@
+hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: #212529; /* Цвет линии для остальных браузеров */
+    background-color: #212529; /* Цвет линии для браузера Firefox и Opera */
+    height: 1px; /* Толщина линии */
+    opacity: 1;
+   }
+.form{
+    width: 400px;
+}
+::placeholder{
+    color:#000;
+}
+.counter-button .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px;
+    min-width: 35px;
+    text-align: center;
+}
+.counter-button .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    font: 1rem/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    }
+.counter-button .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    font: 1rem/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+
+.minus:hover{
+    background-color: #4b4b4b !important;
+}
+.plus:hover{
+    background-color: #4b4b4b !important;
+}
+/*Prevent text selection*/
+span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+input{
+    border: 0;
+    width: 2%;
+}
+nput::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:disabled{
+    background-color:white;
+}

@@ -1,0 +1,53 @@
+{% extends './layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h2>New Question</h2>
+    </div>
+
+    <div class="row mt-3">
+        <label for="textarea1" class="col-1 d-flex justify-content-lg-start mt-3">Question</label>
+        <div class="col-10">
+              <textarea class="form-control border-dark" placeholder="How to build a moon park?" id="textarea1"
+                        style="height: 60px"></textarea>
+            <div class="row alert-message">
+                <div class="col-10">
+                    <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                        Please, input your question!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <label for="textarea2" class="col-1 d-flex justify-content-lg-start mt-3">Text</label>
+        <div class="col-10">
+              <textarea class="form-control border-dark" rows="2" placeholder="Really, how?
+Have no idea about it" id="textarea2" style="height: 200px"></textarea>
+            <div class="row alert-message">
+                <div class="col-10">
+                    <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                        Please, input your question!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <label for="textarea3" class="col-1 d-flex justify-content-lg-start mt-3">Tags</label>
+        <div class="col-10">
+            <textarea class="form-control border-dark" placeholder="moon, park, puzzle" id="textarea3"
+                      style="height: 60px"></textarea>
+            <div class="row alert-message">
+                <div class="col-10">
+                    <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                        Please, input your question!
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-light border-dark mt-3">ASK!</button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends './layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center mb-2">
+        <h2>Log In</h2>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="inputLogin" class="col-sm-1 col-form-label me-3">Login</label>
+        <div class="col-sm-5">
+            <input type="email" class="form-control border-dark form" id="inputLogin"
+                   placeholder="Enter your login here">
+            <div class="row alert-message">
+                <div class="col-10">
+                    <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                        Sorry, login is wrong!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-1 col-form-label me-3">Password</label>
+        <div class="col-sm-5">
+            <input type="email" class="form-control border-dark form" id="inputPassword" placeholder="********">
+            <div class="row alert-message">
+                <div class="col-10">
+                    <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                        Sorry, password is wrong!
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-light border-dark mt-3">Log in!</button>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 ps-4">
+            <a href="#">create new account</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends './layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center mb-4">
+        <h2>Settings: Arina Askhabova</h2>
+    </div>
+    <div class="mb-3 row">
+        <label for="inputLogin" class="col-sm-2 col-form-label me-3">Login</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control border-dark form" id="inputLogin" placeholder="dr_pepper">
+            <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Sorry, this login is already exists!
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="inputEmail" class="col-sm-2 col-form-label me-3">Email</label>
+        <div class="col-sm-5">
+            <input type="email" class="form-control border-dark form" id="inputEmail" placeholder="dr.pepper@mail.ru">
+            <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Sorry, this email address is already registered!
+            </div>
+        </div>
+    </div>
+    <div class="mb-4 row">
+        <label for="inputNickName" class="col-sm-2 col-form-label me-3">NickName</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control border-dark form" id="inputNickName" placeholder="Dr.Pepper">
+            <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                Sorry, this nickname is already taken!
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="inputFile" class="col-sm-2 col-form-label me-3">Upload avatar</label>
+        <div class="col-sm-5 pe-0">
+            <div class="mb-3">
+                <img src="../static/img/Avatar.jpeg" width="100" alt="Avatar" class="img-thumbnail mb-3"/>
+                <input type="file" class="form-control" id="inputFile" aria-label="file example" required>
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+                <div class="text-danger mt-3 d-flex justify-content-lg-start" role="alert">
+                    Please, upload file!
+                </div>
+                <button type="button" class="btn btn-light border-dark mt-4">Save</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
