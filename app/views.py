@@ -12,28 +12,40 @@ QUESTIONS = [
 ]
 
 
-def index(request):
+def paginate(objects_list, request, per_page=5):
     page_num = int(request.GET.get('page', 1))
-    paginator = Paginator(QUESTIONS, 5)
+    paginator = Paginator(QUESTIONS, per_page)
     page = paginator.page(page_num)
+    return page
+
+
+def index(request):
     return render(
         request, 'index.html',
-        context={'questions': page.object_list, 'page_obj': page})
+        context={'questions': paginate(QUESTIONS, request, 5),
+                 'page_obj': paginate(QUESTIONS, request, 5)})
 
 
 def hot(request):
-    hot_questions = copy.deepcopy(QUESTIONS)
-    hot_questions.reverse()
-    return render(request, 'hot.html', context={'questions': hot_questions})
+    return render(
+        request, 'hot.html',
+        context={'questions': paginate(QUESTIONS.reverse(), request, 5),
+                 'page_obj': paginate(QUESTIONS.reverse(), request, 5)})
 
 
 def tag(request):
-    return render(request, 'tag.html')
+    return render(
+        request, 'tag.html',
+        context={'questions': paginate(QUESTIONS, request, 3),
+                 'page_obj': paginate(QUESTIONS, request, 3)})
 
 
 def question(request, question_id):
     one_question = QUESTIONS[question_id]
-    return render(request, 'one_question.html', context={'question': one_question})
+    return render(
+        request, 'one_question.html',
+        context={'questions': paginate(QUESTIONS[question_id], request, 2),
+                 'page_obj': paginate(QUESTIONS[question_id], request, 2)})
 
 
 def login(request):

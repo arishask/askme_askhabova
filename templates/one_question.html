@@ -39,7 +39,10 @@
         </div>
     </div>
     <hr>
-    {% include 'layouts/question.html' %}
+     {% for question in questions %}
+        {% include './layouts/question.html' %}
+    {% endfor %}
+    {% include './layouts/pagination.html' %}
     <hr>
     <div class="form-floating mt-3 mb-3">
         <textarea class="form-control border-dark" placeholder="Leave a comment here" id="floatingTextarea1"
