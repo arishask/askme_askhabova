@@ -9,5 +9,5 @@
     {% for question in questions %}
         {% include './layouts/question.html' %}
     {% endfor %}
-    {% include './layouts/pagination.html' %}
+    {% include './layouts/pagination.html' with content=questions %}
 {% endblock %}

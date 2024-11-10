@@ -2,15 +2,15 @@
 
 <nav aria-label="..." class="mt-4">
     <ul class="pagination pagination-sm">
-        {% if page_obj.has_previous %}
+        {% if content.has_previous %}
             <li class="page-item active" aria-current="page">
-                <a class="page-link bg-dark border-dark" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                <a class="page-link bg-dark border-dark" href="?page={{ content.previous_page_number }}"> << back </a>
             </li>
         {% endif %}
 
-        <li class="page-item page-link text-dark">{{ page_obj.number }}</li>
-        {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <li class="page-item page-link text-dark">{{ content.number }}</li>
+        {% if content.has_next %}
+            <li class="page-item"><a class="page-link text-dark" href="?page={{ content.next_page_number }}"> next >> </a>
             </li>
         {% endif %}
 
