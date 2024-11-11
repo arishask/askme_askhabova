@@ -1,5 +1,3 @@
-import copy
-
 from django.shortcuts import render
 from django.core.paginator import *
 
@@ -21,17 +19,20 @@ ANSWERS = [
 
 
 def paginate(objects_list, request, per_page):
-    page_num = int(request.GET.get('page', 1))
+    page_num = request.GET.get('page', 1)
     paginator = Paginator(objects_list, per_page)
-    page = paginator.page(page_num)
+
+    try:
+        page_num = int(page_num)
+    except ValueError:
+        page_num = 1
+
     try:
         page = paginator.page(page_num)
     except PageNotAnInteger:
         page = paginator.page(1)
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
-    except InvalidPage:
-        print("Page doesn't exist")
     return page
 
 

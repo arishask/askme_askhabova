@@ -7,7 +7,7 @@
         <a href="{% url "index" %}">New Questions</a>
     </div>
     {% for question in questions %}
-        {% include './layouts/question.html' %}
+        {% include './components/question.html' %}
     {% endfor %}
-    {% include './layouts/pagination.html' with content=questions %}
+    {% include './components/pagination.html' with content=questions %}
 {% endblock %}я

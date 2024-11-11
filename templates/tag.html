@@ -6,7 +6,7 @@
         <h1>Tag: bender</h1>
     </div>
      {% for question in questions %}
-        {% include './layouts/question.html' %}
+        {% include './components/question.html' %}
     {% endfor %}
-    {% include './layouts/pagination.html' with content=questions %}
+    {% include './components/pagination.html' with content=questions %}
 {% endblock %}
