@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-2">
                         <div class="border mb-3" style="height: 80px">
-                            <img src="{% static "img/questionImg.jpg" %}" alt="questionImg" class="img-fluid">
+                            <img src="{% static 'img/question' %}" alt="questionImg" class="img-fluid">
                         </div>
                         <div class="counter-button mt-1">
                             <span class="minus bg-dark align-content-center">-</span>
@@ -17,15 +17,16 @@
                     </div>
                     <div class="col-10">
                         <h5 class="card-title">
-                            <a href="{% url "one_question" question.id %}">{{ question.title }}</a>
+                            <a href="{% url 'one_question' question.id %}">{{ question.title }}</a>
                         </h5>
                         <p class="card-text">{{ question.text }}</p>
                         <div class="d-flex gap-5">
-                            <a href="" class="card-link">answer (3)</a>
+                            <a href="{% url 'one_question' question.id %}" class="card-link">answer (3)</a>
                             <div>
                                 Tags:
-                                <a href="" class="card-link">black-jack</a>
-                                <a href="" class="card-link">bender</a>
+                                {% for tag in question.tags.all %}
+                                    {% include 'components/tag.html' %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

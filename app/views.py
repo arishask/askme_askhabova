@@ -1,21 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import *
 
-QUESTIONS = [
-    {
-        'title': f'Title {i}',
-        'id': i,
-        'text': f'This is text for question #{i}'
-    } for i in range(30)
-]
-
-ANSWERS = [
-    {
-        'title': f'Title {i}',
-        'id': i,
-        'text': f'This is answer for question #{i}'
-    } for i in range(4)
-]
+from .models import Question, Answer, Tag, Profile
 
 
 def paginate(objects_list, request, per_page):
@@ -37,31 +23,72 @@ def paginate(objects_list, request, per_page):
 
 
 def index(request):
+    questions = Question.objects.all().order_by('-created_at')
+    popular_tags = Tag.objects.popular_tags()
+    top_users = Profile.objects.top_users(5)
+
+    page = paginate(questions, request, 5)
     return render(
         request, 'index.html',
-        context={'questions': paginate(QUESTIONS, request, 5)})
+        context={'questions': page.object_list,
+                 'page_obj': page,
+                 'popular_tags': popular_tags,
+                 'top_users': top_users
+                 }
+    )
 
 
 def hot(request):
-    hot_questions = QUESTIONS.copy()
-    hot_questions.reverse()
+    hot_questions = Question.objects.best_questions()
+    popular_tags = Tag.objects.popular_tags()
+    top_users = Profile.objects.top_users(5)
+
+    page = paginate(hot_questions, request, 5)
     return render(
         request, 'hot.html',
-        context={'questions': paginate(hot_questions, request, 5)})
+        context={'questions': page.object_list,
+                 'page_obj': page,
+                 'popular_tags': popular_tags,
+                 'top_users': top_users
+                 }
+    )
 
 
-def tag(request):
+def tag(request, tag_name):
+    popular_tags = Tag.objects.popular_tags()
+    questions = Question.objects.get_questions_by_tag_name(tag_name)
+
+    top_users = Profile.objects.top_users(5)
+
+    page = paginate(questions, request, 5)
     return render(
-        request, 'tag.html',
-        context={'questions': paginate(QUESTIONS, request, 3)})
+        request,
+        template_name="tag.html",
+        context={
+            'questions': page.object_list,
+            'page_obj': page,
+            'tag_name': tag_name,
+            'popular_tags': popular_tags,
+            'top_users': top_users
+        }
+    )
 
 
 def question(request, question_id):
-    one_question = QUESTIONS[question_id]
+    popular_tags = Tag.objects.popular_tags()
+    top_users = Profile.objects.top_users(5)
+    answers = Answer.objects.get_answers_by_question_id(question_id)
+
+    page = paginate(answers, request, 5)
+
     return render(
         request, 'one_question.html',
-        context={'answers': paginate(ANSWERS, request, 2),
-                 'question': one_question})
+        context={'question': Question.objects.get_question_by_id(question_id),
+                 'page_obj': page,
+                 'answers': page.object_list,
+                 'popular_tags': popular_tags,
+                 'top_users': top_users
+                 })
 
 
 def login(request):

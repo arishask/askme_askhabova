@@ -15,9 +15,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         fake = Faker()
         ratio = options['ratio']
-
         users = []
-        for _ in range(ratio):
+        for i in range(ratio):
             while True:
                 username = fake.user_name()
                 try:
@@ -28,10 +27,14 @@ class Command(BaseCommand):
                 except IntegrityError:
                     continue
 
-        tags = [Tag.objects.create(name=fake.word()) for _ in range(ratio)]
+        tags = []
+        for _ in range(ratio):
+            tag_name = fake.unique.word()
+            tag, created = Tag.objects.get_or_create(name=tag_name)
+            tags.append(tag)
 
         questions = []
-        for _ in range(ratio * 10):
+        for i in range(ratio * 10):
             question = Question.objects.create(
                 title=fake.sentence(),
                 text=fake.text(),
@@ -41,7 +44,7 @@ class Command(BaseCommand):
             questions.append(question)
 
         answers = []
-        for _ in range(ratio * 100):
+        for i in range(ratio * 100):
             answer = Answer.objects.create(
                 question=random.choice(questions),
                 author=random.choice(users),
@@ -51,7 +54,7 @@ class Command(BaseCommand):
             answers.append(answer)
 
         question_likes = []
-        for _ in range(ratio * 200):
+        for i in range(ratio * 200):
             user = random.choice(users)
             question = random.choice(questions)
             if not QuestionLike.objects.filter(user=user, question=question).exists():
@@ -59,7 +62,7 @@ class Command(BaseCommand):
                 question_likes.append(question_like)
 
         answer_likes = []
-        for _ in range(ratio * 200):
+        for i in range(ratio * 200):
             user = random.choice(users)
             answer = random.choice(answers)
             if not AnswerLike.objects.filter(user=user, answer=answer).exists():

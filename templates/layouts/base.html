@@ -41,34 +41,17 @@
             <section class="mb-4 mt-5">
                 <h2>Popular Tags</h2>
                 <div class="d-inline">
-                    <span><a href=""
-                             class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">perl</a></span>
-                    <span><a href=""
-                             class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">python</a></span>
-                    <span><a href=""
-                             class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">TechnoPark</a></span>
-                    <span><a href=""
-                             class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">MySQL</a></span>
-                    <span><a href=""
-                             class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">django</a></span>
-                    <span><a href=""
-                             class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Mail.Ru</a></span>
-                    <span><a href=""
-                             class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Voloshin</a></span>
-                    <span><a href=""
-                             class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Firefox</a></span>
+                    {% for tag in popular_tags %}
+                        {% include 'components/tag.html' %}
+                    {% endfor %}
                 </div>
             </section>
             <section>
                 <h2>Best Members</h2>
                 <div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item p-0 border-0 mb-2"><a href="">Mr. Freeman</a></li>
-                        <li class="list-group-item p-0 border-0 mb-2"><a href="">Dr. House</a></li>
-                        <li class="list-group-item p-0 border-0 mb-2"><a href="">Bender</a></li>
-                        <li class="list-group-item p-0 border-0 mb-2"><a href="">Queen Victoria</a></li>
-                        <li class="list-group-item p-0 border-0 mb-2"><a href="">A. Askhabova</a></li>
-                    </ul>
+                    {% for user in top_users %}
+                        {% include 'components/user.html' %}
+                    {% endfor %}
                 </div>
             </section>
         </div>
