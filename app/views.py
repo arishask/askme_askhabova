@@ -100,7 +100,15 @@ def signup(request):
 
 
 def ask(request):
-    return render(request, 'ask.html')
+    popular_tags = Tag.objects.popular_tags()
+    top_users = Profile.objects.top_users(5)
+
+    return render(
+        request, 'ask.html',
+        context={'popular_tags': popular_tags,
+                 'top_users': top_users
+                 }
+        )
 
 
 def settings(request):
