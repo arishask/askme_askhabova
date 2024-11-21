@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import *
 
-from .models import Question, Answer, Tag, Profile
+from .models import Question, Answer, Tag, Profile, QuestionLike
 
 
 def paginate(objects_list, request, per_page):
@@ -78,6 +78,7 @@ def question(request, question_id):
     popular_tags = Tag.objects.popular_tags()
     top_users = Profile.objects.top_users(5)
     answers = Answer.objects.get_answers_by_question_id(question_id)
+    likes = QuestionLike.objects.all()
 
     page = paginate(answers, request, 5)
 
@@ -87,7 +88,8 @@ def question(request, question_id):
                  'page_obj': page,
                  'answers': page.object_list,
                  'popular_tags': popular_tags,
-                 'top_users': top_users
+                 'top_users': top_users,
+                 'likes': likes
                  })
 
 
