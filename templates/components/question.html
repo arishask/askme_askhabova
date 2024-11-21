@@ -11,11 +11,8 @@
                         </div>
                         <div class="counter-button mt-1">
                             <span class="minus bg-dark align-content-center">-</span>
-                            <input type="number" class="count" name="counter-button" value="">
-                            {% with likes=question.likes.all.count %}
-                                {{ likes }}
-                            {% endwith %}
-
+                            <input type="number" class="count" name="counter-button"
+                                   value="{% with likes=question.likes.all.count %}{{ likes }}{% endwith %}">
                             <span class="plus bg-dark align-content-center">+</span>
                         </div>
                     </div>
