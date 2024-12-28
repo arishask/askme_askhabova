@@ -1,7 +1,21 @@
-from django.shortcuts import render
+from django.forms import model_to_dict
+from django.shortcuts import render, redirect
 from django.core.paginator import *
 
+from . import models
+from .forms import *
 from .models import Question, Answer, Tag, Profile, QuestionLike
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib import auth
+from django.views.decorators.csrf import csrf_protect
+
+from app.forms import LoginForm
+
+top_users = models.Profile.objects.all()[:10]
+top_tags = models.Tag.objects.all()[:10]
 
 
 def paginate(objects_list, request, per_page):
@@ -20,6 +34,22 @@ def paginate(objects_list, request, per_page):
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
     return page
+
+
+def create_content_right():
+    content = {
+        "tags": top_tags,
+        "users": top_users,
+    }
+
+    return content
+
+
+def create_content(objects, request):
+    page = paginate(objects, request)
+    content = create_content_right()
+    content["content"] = page
+    return content
 
 
 def index(request):
@@ -94,11 +124,32 @@ def question(request, question_id):
 
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = auth.authenticate(request, **form.cleaned_data)
+            if user:
+                auth.login(request, user)
+                return redirect(reverse('profile.edit'))
+            form.add_error('password', 'Invalid username or password.')
+    elif request.method == 'GET':
+        form = LoginForm
+    return render(request, 'login.html', {'form': form})
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    if request.method == 'POST':
+        form = SignUpForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            user = form.save()
+            if user:
+                login(request, user)
+                return redirect(reverse('index'))
+            else:
+                return redirect(reverse('register'))
+    elif request.method == 'GET':
+        form = SignUpForm
+    return render(request, 'signup.html', {'form': form})
 
 
 def ask(request):
@@ -110,8 +161,23 @@ def ask(request):
         context={'popular_tags': popular_tags,
                  'top_users': top_users
                  }
-        )
+    )
 
 
+@login_required(login_url='login', redirect_field_name='continue')
 def settings(request):
-    return render(request, 'settings.html')
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("settings"))
+    elif request.method == 'GET':
+        initial_data = model_to_dict(request.user)
+        initial_data['avatar'] = request.user.profile_related.avatar
+        form = ProfileEditForm(initial=initial_data)
+    return render(request, 'settings.html', {'form': form})
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse('index'))

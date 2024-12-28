@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <div class="not_found">
+        <h1 class="not_found_code">404</h1>
+        <h2 class="not_found_msg">Requested resource doesn't exist :(</h2>
+        <a href="{% url "hot" %}" class="not_found_msg"><h2>See hot questions!</h2></a>
+    </div>
+
+{% endblock %}
